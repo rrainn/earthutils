@@ -60,6 +60,14 @@ console.log(earthutils.AddressParser("123 Headquarters Plaza"));
 }
 */
 
+console.log(earthutils.AddressParser("123 HEADQUARTERS PLAZA"));
+/*
+{
+	"addr:housenumber": "123",
+	"addr:street": "Headquarters Plaza"
+}
+*/
+
 console.log(earthutils.AddressParser("123 Headquarters Plaza Ste 12"));
 /*
 {

@@ -44,6 +44,13 @@ const tests = [
 			"addr:unit": "14",
 			"addr:unitname": ""
 		}
+	},
+	{
+		"input": "123 WASHINGTON PARKWAY",
+		"output": {
+			"addr:housenumber": "123",
+			"addr:street": "Washington Parkway"
+		}
 	}
 ];
 

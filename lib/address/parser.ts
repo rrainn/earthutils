@@ -36,5 +36,8 @@ export default function (address: string, settings?: AddressParserSettings): Add
 		returnObject["addr:street"] = standardizeStreet(returnObject["addr:street"]);
 	}
 
+	// Ensure that only the first letters in each word are capitalized for addr:street
+	returnObject["addr:street"] = returnObject["addr:street"].split(" ").map((val) => val.charAt(0).toUpperCase() + val.slice(1).toLowerCase()).join(" ");
+
 	return returnObject;
 };
