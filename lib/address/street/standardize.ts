@@ -17,10 +17,7 @@ export default function (street: string): string {
 		streetParts[streetParts.length - 1] = streetParts[streetParts.length - 1].slice(0, -1);
 	}
 
-	let possibleStreetSuffix = streetParts[streetParts.length - 1];
-	if (possibleStreetSuffix.endsWith(".")) {
-		possibleStreetSuffix = possibleStreetSuffix.replace(".", "").toUpperCase();
-	}
+	const possibleStreetSuffix = streetParts[streetParts.length - 1].replace(".", "").toUpperCase();
 	const streetSuffixName = StreetSuffix.toName(possibleStreetSuffix);
 	if (streetSuffixName) {
 		streetParts[streetParts.length - 1] = streetSuffixName;
