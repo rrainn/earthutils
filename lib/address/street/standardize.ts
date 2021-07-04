@@ -9,6 +9,14 @@ export default function (street: string): string {
 		streetParts[0] = fullDirection;
 	}
 
+	const removeTrailingCharacters = [",", "-"];
+	if (removeTrailingCharacters.includes(streetParts[streetParts.length - 1])) {
+		streetParts.pop();
+	}
+	if (removeTrailingCharacters.some((char) => streetParts[streetParts.length - 1].endsWith(char))) {
+		streetParts[streetParts.length - 1] = streetParts[streetParts.length - 1].slice(0, -1);
+	}
+
 	let possibleStreetSuffix = streetParts[streetParts.length - 1];
 	if (possibleStreetSuffix.endsWith(".")) {
 		possibleStreetSuffix = possibleStreetSuffix.replace(".", "").toUpperCase();

@@ -36,6 +36,22 @@ const tests = [
 	{
 		"input": "S HEADQUARTERS Ave.",
 		"output": "South Headquarters Avenue"
+	},
+	{
+		"input": "S HEADQUARTERS AVE -",
+		"output": "South Headquarters Avenue"
+	},
+	{
+		"input": "S HEADQUARTERS AVE-",
+		"output": "South Headquarters Avenue"
+	},
+	{
+		"input": "S HEADQUARTERS AVE ,",
+		"output": "South Headquarters Avenue"
+	},
+	{
+		"input": "S HEADQUARTERS AVE,",
+		"output": "South Headquarters Avenue"
 	}
 ];
 
