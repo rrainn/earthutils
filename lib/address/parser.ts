@@ -19,8 +19,8 @@ export default function (address: string, settings?: AddressParserSettings): Add
 		"addr:street": street
 	};
 
-	const secondLastStreetPart = streetParts[streetParts.length - 2].toUpperCase();
-	if (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || streetParts[streetParts.length - 1].startsWith("#")) {
+	const secondLastStreetPart = (streetParts[streetParts.length - 2] || "").toUpperCase();
+	if (streetParts[streetParts.length - 2] && (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || streetParts[streetParts.length - 1].startsWith("#"))) {
 		returnObject["addr:unit"] = streetParts[streetParts.length - 1].replace("#", "");
 		returnObject["addr:unitname"] = SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || "";
 

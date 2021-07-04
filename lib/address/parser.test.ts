@@ -64,6 +64,19 @@ const tests = [
 		"options": {
 			"standardizeStreet": true
 		}
+	},
+	{
+		"input": "",
+		"output": {
+		}
+	},
+	{
+		"input": "",
+		"output": {
+		},
+		"options": {
+			"standardizeStreet": true
+		}
 	}
 ];
 
