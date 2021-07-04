@@ -37,6 +37,30 @@ const tests = [
 		}
 	},
 	{
+		"input": "123 Washington Parkway - Ste #14",
+		"output": {
+			"addr:housenumber": "123",
+			"addr:street": "Washington Parkway",
+			"addr:unit": "14",
+			"addr:unitname": "Suite"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "123 Washington Parkway, Ste #14",
+		"output": {
+			"addr:housenumber": "123",
+			"addr:street": "Washington Parkway",
+			"addr:unit": "14",
+			"addr:unitname": "Suite"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
 		"input": "123 Washington Parkway #14",
 		"output": {
 			"addr:housenumber": "123",
