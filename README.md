@@ -44,7 +44,9 @@ console.log(earthutils.DirectionAbbreviations.DirectionAbbreviationsInverse);
 const earthutils = require("earthutils");
 
 console.log(earthutils.StreetStandardize("S Headquarters Plaza")); // South Headquarters Plaza
+console.log(earthutils.StreetStandardize("S HEADQUARTERS PLAZA")); // South Headquarters Plaza
 console.log(earthutils.StreetStandardize("Headquarters Plaza")); // Headquarters Plaza
+console.log(earthutils.StreetStandardize("Headquarters AVE")); // Headquarters Avenue
 ```
 
 ### Address Parser
@@ -53,14 +55,6 @@ console.log(earthutils.StreetStandardize("Headquarters Plaza")); // Headquarters
 const earthutils = require("earthutils");
 
 console.log(earthutils.AddressParser("123 Headquarters Plaza"));
-/*
-{
-	"addr:housenumber": "123",
-	"addr:street": "Headquarters Plaza"
-}
-*/
-
-console.log(earthutils.AddressParser("123 HEADQUARTERS PLAZA"));
 /*
 {
 	"addr:housenumber": "123",

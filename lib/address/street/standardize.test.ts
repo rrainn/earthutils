@@ -8,6 +8,34 @@ const tests = [
 	{
 		"input": "S Headquarters Plaza",
 		"output": "South Headquarters Plaza"
+	},
+	// {
+	// 	"input": "Headquarters Ave",
+	// 	"output": "Headquarters Avenue"
+	// },
+	{
+		"input": "Headquarters AVE",
+		"output": "Headquarters Avenue"
+	},
+	{
+		"input": "Headquarters AVEN",
+		"output": "Headquarters Avenue"
+	},
+	// {
+	// 	"input": "S Headquarters Ave",
+	// 	"output": "South Headquarters Avenue"
+	// },
+	{
+		"input": "S HEADQUARTERS AVE",
+		"output": "South Headquarters Avenue"
+	},
+	{
+		"input": "S HEADQUARTERS AVE.",
+		"output": "South Headquarters Avenue"
+	},
+	{
+		"input": "S HEADQUARTERS Ave.",
+		"output": "South Headquarters Avenue"
 	}
 ];
 

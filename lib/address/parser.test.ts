@@ -50,6 +50,19 @@ const tests = [
 		"output": {
 			"addr:housenumber": "123",
 			"addr:street": "Washington Parkway"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "123 WASHINGTON PKWY",
+		"output": {
+			"addr:housenumber": "123",
+			"addr:street": "Washington Parkway"
+		},
+		"options": {
+			"standardizeStreet": true
 		}
 	}
 ];
