@@ -101,7 +101,123 @@ const tests = [
 		"options": {
 			"standardizeStreet": true
 		}
-	}
+	},
+	{
+		"input": "6200 20th Street  Room 600",
+		"output": {
+			"addr:housenumber": "6200",
+			"addr:street": "20th Street",
+			"addr:unit": "600",
+			"addr:unitname": "Room"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "6200 20th Street  ROOM 600",
+		"output": {
+			"addr:housenumber": "6200",
+			"addr:street": "20th Street",
+			"addr:unit": "600",
+			"addr:unitname": "Room"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "6200 20th Street  RM 600",
+		"output": {
+			"addr:housenumber": "6200",
+			"addr:street": "20th Street",
+			"addr:unit": "600",
+			"addr:unitname": "Room"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "6200 20th Street  RM. 600",
+		"output": {
+			"addr:housenumber": "6200",
+			"addr:street": "20th Street",
+			"addr:unit": "600",
+			"addr:unitname": "Room"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "6200 20th Street  Rm. 600",
+		"output": {
+			"addr:housenumber": "6200",
+			"addr:street": "20th Street",
+			"addr:unit": "600",
+			"addr:unitname": "Room"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "601 N. Martingale Rd. Ste. 105",
+		"output": {
+			"addr:housenumber": "601",
+			"addr:street": "North Martingale Road",
+			"addr:unit": "105",
+			"addr:unitname": "Suite"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "19200 E 39th St S",
+		"output": {
+			"addr:housenumber": "19200",
+			"addr:street": "East 39th Street S"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "11801 S Sam Houston Pkwy E",
+		"output": {
+			"addr:housenumber": "11801",
+			"addr:street": "South Sam Houston Parkway E"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "601 N. Martingale Rd. PH #105",
+		"output": {
+			"addr:housenumber": "601",
+			"addr:street": "North Martingale Road",
+			"addr:unit": "105",
+			"addr:unitname": "Penthouse"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "601 N. Martingale Rd. BLDG #105",
+		"output": {
+			"addr:housenumber": "601",
+			"addr:street": "North Martingale Road",
+			"addr:unit": "105",
+			"addr:unitname": "Building"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
 ];
 
 tests.forEach((testObj) => {

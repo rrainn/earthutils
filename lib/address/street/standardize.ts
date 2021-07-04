@@ -23,6 +23,13 @@ export default function (street: string): string {
 	if (streetSuffixName) {
 		streetParts[streetParts.length - 1] = streetSuffixName;
 	}
+	if (Object.values(DirectionAbbreviations.DirectionAbbreviationsInverse).includes(possibleStreetSuffix)) {
+		const possibleStreetSuffix = streetParts[streetParts.length - 2].replace(".", "").toUpperCase();
+		const streetSuffixName = StreetSuffix.toName(possibleStreetSuffix);
+		if (streetSuffixName) {
+			streetParts[streetParts.length - 2] = streetSuffixName;
+		}
+	}
 
 	// Ensure that only the first letters in each word are capitalized
 	streetParts = streetParts.map((part) => {

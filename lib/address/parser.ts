@@ -19,15 +19,22 @@ export default function (address: string, settings?: AddressParserSettings): Add
 		"addr:street": street
 	};
 
-	const secondLastStreetPart = (streetParts[streetParts.length - 2] || "").toUpperCase();
-	if (streetParts[streetParts.length - 2] && (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || streetParts[streetParts.length - 1].startsWith("#"))) {
+	const secondLastStreetPart = (streetParts[streetParts.length - 2] || "").toUpperCase().replace(".", "");
+	if (streetParts[streetParts.length - 2] && (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || SecondaryUnit.SecondaryUnitAbbreviationsInverseCaps[secondLastStreetPart] || streetParts[streetParts.length - 1].startsWith("#"))) {
 		returnObject["addr:unit"] = streetParts[streetParts.length - 1].replace("#", "");
-		returnObject["addr:unitname"] = SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || "";
+		if (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart]) {
+			returnObject["addr:unitname"] = SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart];
+		} else if (SecondaryUnit.SecondaryUnitAbbreviationsInverseCaps[secondLastStreetPart]) {
+			const abbreviation = SecondaryUnit.SecondaryUnitAbbreviationsInverseCaps[secondLastStreetPart];
+			returnObject["addr:unitname"] = SecondaryUnit.SecondaryUnitAbbreviations[abbreviation];
+		} else {
+			returnObject["addr:unitname"] = "";
+		}
 
 		if (streetParts[streetParts.length - 1].startsWith("#")) {
 			returnObject["addr:street"] = streetParts.slice(0, -1).join(" ");
 		}
-		if (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart]) {
+		if (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || SecondaryUnit.SecondaryUnitAbbreviationsInverseCaps[secondLastStreetPart]) {
 			returnObject["addr:street"] = streetParts.slice(0, -2).join(" ");
 		}
 	}

@@ -30,3 +30,9 @@ export const SecondaryUnitAbbreviationsInverse = Object.entries(SecondaryUnitAbb
 
 	return obj;
 }, {});
+
+export const SecondaryUnitAbbreviationsInverseCaps = Object.entries(SecondaryUnitAbbreviations).reduce((obj, current) => {
+	obj[current[1].toUpperCase()] = current[0];
+
+	return obj;
+}, {});
