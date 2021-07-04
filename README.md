@@ -13,9 +13,9 @@ $ npm install earthutils
 ## API
 
 ```js
-const directionAbbreviations = require("earthutils/abbreviations/direction"); // TODO need to verify that this is accurate
+const earthutils = require("earthutils");
 
-console.log(directionAbbreviations.DirectionAbbreviations);
+console.log(earthutils.DirectionAbbreviations.DirectionAbbreviations);
 /*
 {
 	"N": "North",
@@ -25,7 +25,7 @@ console.log(directionAbbreviations.DirectionAbbreviations);
 }
 */
 
-console.log(directionAbbreviations.DirectionAbbreviationsInverse);
+console.log(earthutils.DirectionAbbreviations.DirectionAbbreviationsInverse);
 /*
 {
 	"North": "N",

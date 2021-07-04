@@ -10,5 +10,6 @@
 		"noImplicitThis": true,
 		"strict": false
 	},
+	"exclude": ["**/*.test.ts"],
 	"include": ["./lib/**/*"]
 }
