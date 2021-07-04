@@ -1,0 +1,19 @@
+{
+  "name": "earthutils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrainn/earthutils.git"
+  },
+  "author": "rrainn, Inc.",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/rrainn/earthutils/issues"
+  },
+  "homepage": "https://github.com/rrainn/earthutils#readme"
+}
