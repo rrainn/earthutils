@@ -60,6 +60,16 @@ console.log(earthutils.AddressParser("123 Headquarters Plaza"));
 }
 */
 
+console.log(earthutils.AddressParser("123 Headquarters Plaza Ste 12"));
+/*
+{
+	"addr:housenumber": "123",
+	"addr:street": "Headquarters Plaza",
+	"addr:unit": "12",
+	"addr:unitname": "Suite"
+}
+*/
+
 console.log(earthutils.AddressParser("123 S Headquarters Plaza", {"standardizeStreet": true})); // `standardizeStreet` will run `addr:street` through the Street Standardize function automatically
 /*
 {
