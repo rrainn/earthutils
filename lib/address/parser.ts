@@ -6,18 +6,28 @@ export interface AddressParserSettings {
 }
 
 export interface AddressParserOutput {
-	"addr:housenumber": string;
-	"addr:street": string;
+	"addr:housenumber"?: string;
+	"addr:street"?: string;
+	"addr:unit"?: string;
+	"addr:unitname"?: string;
 }
 
 export default function (address: string, settings?: AddressParserSettings): AddressParserOutput {
 	const [addressNumber, ...streetParts] = address.split(" ");
 	let street = streetParts.join(" ");
 
-	const returnObject = {
-		"addr:housenumber": addressNumber,
-		"addr:street": street
-	};
+	let returnObject = {};
+
+	if (!Number.isNaN(parseInt(addressNumber))) {
+		returnObject = {
+			"addr:housenumber": addressNumber,
+			"addr:street": street
+		};
+	} else if (address) {
+		returnObject = {
+			"addr:street": address
+		};
+	}
 
 	const secondLastStreetPart = (streetParts[streetParts.length - 2] || "").toUpperCase().replace(".", "");
 	if (streetParts[streetParts.length - 2] && (SecondaryUnit.SecondaryUnitAbbreviations[secondLastStreetPart] || SecondaryUnit.SecondaryUnitAbbreviationsInverseCaps[secondLastStreetPart] || streetParts[streetParts.length - 1].startsWith("#"))) {
@@ -39,7 +49,7 @@ export default function (address: string, settings?: AddressParserSettings): Add
 		}
 	}
 
-	if (settings?.standardizeStreet) {
+	if (settings?.standardizeStreet && returnObject["addr:street"]) {
 		returnObject["addr:street"] = standardizeStreet(returnObject["addr:street"]);
 	}
 

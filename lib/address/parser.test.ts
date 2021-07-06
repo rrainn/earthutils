@@ -218,10 +218,31 @@ const tests = [
 			"standardizeStreet": true
 		}
 	},
+	{
+		"input": "Mile 248.5 George Parks Hwy",
+		"output": {
+			"addr:street": "Mile 248.5 George Parks Highway"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	},
+	{
+		"input": "3858 Lake St #5",
+		"output": {
+			"addr:housenumber": "3858",
+			"addr:street": "Lake Street",
+			"addr:unit": "5",
+			"addr:unitname": ""
+		},
+		"options": {
+			"standardizeStreet": true
+		}
+	}
 ];
 
 tests.forEach((testObj) => {
 	test("Should have correct direction abbreviations", () => {
-		expect(parser.default(testObj.input, testObj.options || {})).toMatchObject(testObj.output);
+		expect(parser.default(testObj.input, testObj.options || {})).toEqual(testObj.output);
 	});
 });
