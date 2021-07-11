@@ -18,6 +18,7 @@ export const SecondaryUnitAbbreviations = {
 	"RM": "Room",
 	"SIDE": "Side",
 	"SLIP": "Slip",
+	"SPC": "Space",
 	"STOP": "Stop",
 	"STE": "Suite",
 	"TRLR": "Trailer",
