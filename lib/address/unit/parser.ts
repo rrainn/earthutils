@@ -17,11 +17,11 @@ function standardizeSecondaryUnit(value: string): string | false {
 	}
 }
 
-export default function (unit: string): any {
-	const unitParts = unit.replace(/^#/gmu, "").trim().split(" ");
+export default function parseUnit(unit: string): any {
+	let unitParts = unit.replace(/^#/gmu, "").trim().split(" ");
 	const [unitName, ...unitValue] = unitParts;
 
-	const returnObject = {};
+	let returnObject = {};
 
 	const standardizedSecondaryUnit = standardizeSecondaryUnit(unitName);
 	if (standardizedSecondaryUnit) {
@@ -30,10 +30,21 @@ export default function (unit: string): any {
 		returnObject["addr:unitname"] = "";
 	}
 
-	returnObject["addr:unit"] = unitValue.join(" ");
+	returnObject["addr:unit"] = unitValue.join(" ").trim();
 
 	if (returnObject["addr:unitname"] === "") {
 		returnObject["addr:unit"] = `${unitName} ${returnObject["addr:unit"]}`.trim();
+	}
+
+	unitParts = returnObject["addr:unit"].split(" ");
+	const nextPart = unitParts.find((part) => standardizeSecondaryUnit(part) !== false);
+	if (nextPart) {
+		const nextPartArray = returnObject["addr:unit"].split(nextPart);
+		returnObject["addr:unit"] = nextPartArray[0].trim();
+		returnObject = [
+			returnObject,
+			parseUnit(`${nextPart} ${nextPartArray[1]}`),
+		];
 	}
 
 	return returnObject;
