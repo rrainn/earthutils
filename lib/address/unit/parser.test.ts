@@ -163,6 +163,19 @@ const tests = [
 		}
 	},
 	{
+		"input": "Bldg 2 Unit 227",
+		"output": [
+			{
+				"addr:unit": "2",
+				"addr:unitname": "Building"
+			},
+			{
+				"addr:unit": "227",
+				"addr:unitname": "Unit"
+			}
+		]
+	},
+	{
 		"input": "Spc 4",
 		"output": {
 			"addr:unit": "4",
