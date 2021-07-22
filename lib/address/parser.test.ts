@@ -238,6 +238,26 @@ const tests = [
 		"options": {
 			"standardizeStreet": true
 		}
+	},
+	{
+		"input": "3858 Lake St Bldg 1 Unit A",
+		"output": {
+			"addr:housenumber": "3858",
+			"addr:street": "Lake Street",
+			"addr:unit": [
+				{
+					"addr:unit": "1",
+					"addr:unitname": "Building"
+				},
+				{
+					"addr:unit": "A",
+					"addr:unitname": "Unit"
+				}
+			]
+		},
+		"options": {
+			"standardizeStreet": true
+		}
 	}
 ];
 

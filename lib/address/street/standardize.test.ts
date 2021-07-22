@@ -80,6 +80,10 @@ const tests = [
 	{
 		"input": "E  Montclair",
 		"output": "East Montclair"
+	},
+	{
+		"input": "E  Headquarters Ave",
+		"output": "East Headquarters Avenue"
 	}
 ];
 
