@@ -53,5 +53,9 @@ export default function (address: string, settings?: AddressParserSettings): Add
 		returnObject["addr:street"] = standardizeStreet(returnObject["addr:street"]);
 	}
 
+	if (returnObject["addr:housenumber"] && returnObject["addr:housenumber"].endsWith(".0")) {
+		returnObject["addr:housenumber"] = returnObject["addr:housenumber"].replace(/*/\.\0$/gmu*/".0", "");
+	}
+
 	return returnObject;
 };

@@ -258,6 +258,16 @@ const tests = [
 		"options": {
 			"standardizeStreet": true
 		}
+	},
+	{
+		"input": "1234.0 1/2 Washington St",
+		"output": {
+			"addr:housenumber": "1234",
+			"addr:street": "1/2 Washington Street"
+		},
+		"options": {
+			"standardizeStreet": true
+		}
 	}
 ];
 
