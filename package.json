@@ -5,9 +5,10 @@
   "main": "dist/index.js",
   "scripts": {
     "prepare": "npm run build:clean && npm run build",
-    "build": "tsc",
+    "build": "tsc && npm run build:post",
     "build:clean": "rimraf dist",
-    "build:watch": "npm run build -- -w",
+    "build:watch": "tsc -w",
+    "build:post": "rm -rf dist/data && cp -r lib/data dist/data",
     "test": "jest"
   },
   "repository": {
