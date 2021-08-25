@@ -2,6 +2,14 @@ import * as standardize from "./standardize";
 
 const tests = [
 	{
+		"input": undefined,
+		"output": undefined
+	},
+	{
+		"input": null,
+		"output": undefined
+	},
+	{
 		"input": "test",
 		"output": undefined
 	},
